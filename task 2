@@ -12,16 +12,16 @@ private:
     double balance;
 
 public:
-    // Constructor to initialize an account
+    
     Account(string accNum, string holder, double initialBalance = 0.0)
         : accountNumber(accNum), accountHolder(holder), balance(initialBalance) {}
 
-    // Accessor methods
+    
     string getAccountNumber() const { return accountNumber; }
     string getAccountHolder() const { return accountHolder; }
     double getBalance() const { return balance; }
 
-    // Method to deposit money into the account
+    
     void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -31,7 +31,7 @@ public:
         }
     }
 
-    // Method to withdraw money from the account
+    
     void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
@@ -41,7 +41,7 @@ public:
         }
     }
 
-    // Method to transfer money to another account
+    
     void transfer(Account &toAccount, double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
@@ -52,7 +52,7 @@ public:
         }
     }
 
-    // Method to display account details
+    
     void displayAccountInfo() const {
         cout << "Account Number: " << accountNumber << endl;
         cout << "Account Holder: " << accountHolder << endl;
@@ -64,7 +64,7 @@ class BankingSystem {
 private:
     vector<Account> accounts;
 
-    // Helper method to find an account by account number
+    
     Account* findAccount(const string &accountNumber) {
         for (auto &account : accounts) {
             if (account.getAccountNumber() == accountNumber) {
@@ -75,7 +75,7 @@ private:
     }
 
 public:
-    // Method to create a new account
+    
     void createAccount() {
         string accNum, holder;
         double initialBalance;
@@ -83,7 +83,7 @@ public:
         cout << "Enter account number: ";
         cin >> accNum;
         cout << "Enter account holder's name: ";
-        cin.ignore(); // To clear the newline character left in the buffer
+        cin.ignore();
         getline(cin, holder);
         cout << "Enter initial balance: ";
         cin >> initialBalance;
@@ -92,7 +92,7 @@ public:
         cout << "Account created successfully!" << endl;
     }
 
-    // Method to deposit funds into an account
+    
     void depositFunds() {
         string accNum;
         double amount;
@@ -110,7 +110,7 @@ public:
         }
     }
 
-    // Method to withdraw funds from an account
+    
     void withdrawFunds() {
         string accNum;
         double amount;
@@ -128,7 +128,7 @@ public:
         }
     }
 
-    // Method to transfer funds between accounts
+    
     void transferFunds() {
         string fromAccNum, toAccNum;
         double amount;
@@ -154,7 +154,7 @@ public:
         }
     }
 
-    // Method to view an account's details
+    
     void viewAccount() {
         string accNum;
 
@@ -169,7 +169,7 @@ public:
         }
     }
 
-    // Method to display the main menu
+    
     void showMenu() {
         cout << "\n===== Online Banking System =====" << endl;
         cout << "1. Create Account" << endl;
@@ -180,7 +180,7 @@ public:
         cout << "6. Exit" << endl;
     }
 
-    // Method to run the banking system
+    
     void run() {
         int choice;
         do {
